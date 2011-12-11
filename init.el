@@ -1,27 +1,9 @@
 ;; load path
+(add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/init.d"))
 
-;; Language settings
-(set-language-environment "Japanese")
-(prefer-coding-system 'utf-8)
-(set-buffer-file-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-
-;; Activate Backspace 
-(global-set-key "\C-h" 'delete-backward-char)
-(define-key function-key-map [delete] [8])
-(put 'delete 'ascii-character 8)
-
-;; key binds
-(global-set-key "\M-c" 'compile)
-(global-set-key "\M-g" 'goto-line)
-(global-set-key "\M-c" 'compile)
-;(global-set-key "\M-e" 'next-error)
-(global-set-key [up] 'previous-error)
-(global-set-key [down] 'next-error)
-;(global-set-key  [(f1)]  (lambda () (interactive) (manual-entry (current-word))))
+(load "init_lang")
+(load "init_keybind")
 
 ;; Display time
 (display-time)
@@ -59,16 +41,5 @@ and source-file directory for your debugger." t)
 ;;; use space for indentation
 (setq-default indent-tabs-mode nil)
 
-(custom-set-variables
-  ;; custom-set-variables was added by Custom -- don't edit or cut/paste it!
-  ;; Your init file should contain only one such instance.
- '(c-basic-offset 4)
- '(c-default-style (quote ((c-mode . "linux") (c++-mode . "linux") (objc-mode . "linux") (idl-mode . "linux") (pike-mode . "linux") (other . "linux"))))
- '(c-insert-tab-function (quote insert-tab))
- '(c-tab-always-indent nil)
- '(inhibit-local-menu-bar-menus t)
- '(perl-indent-level 4))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom -- don't edit or cut/paste it!
-  ;; Your init file should contain only one such instance.
- )
+;; custom-file
+(setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
