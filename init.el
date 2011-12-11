@@ -46,13 +46,6 @@
 the directory containing file becomes the initial working directory
 and source-file directory for your debugger." t)
 
-;; auto install
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp"))
-(require 'auto-install)
-(setq auto-install-directory "~/.emacs.d/auto-install/")
-(auto-install-update-emacswiki-package-name t)
-(auto-install-compatibility-setup)
-
 ;; system dependent configs
 (if (featurep 'meadow)
     (load-file "~/.emacs.d/meadow.el")
