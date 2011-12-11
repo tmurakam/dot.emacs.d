@@ -1,6 +1,7 @@
 ;; load path
 (add-to-list 'load-path (expand-file-name "~/.emacs.d"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install"))
 
 ;; load inits
 (load "init_lang")
