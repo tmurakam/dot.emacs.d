@@ -16,10 +16,6 @@
 ;; ;; (set-language-environment) の前に設定します
 (require 'jisx0213)
 
-;;; 日本語環境設定
-(set-language-environment "Japanese")
-
-
 ;;; IMEの設定
 (mw32-ime-initialize)
 (setq default-input-method "MW32-IME")
@@ -39,11 +35,6 @@
 ;;; マウスカーソルを消す設定
 ;(setq w32-hide-mouse-on-key t)
 ;(setq w32-hide-mouse-timeout 5000)
-
-
-;;; font-lockの設定
-(global-font-lock-mode t)
-
 
 ;;; フォント設定 (Meadow wiki のフォント設定ページから)
 (w32-add-font
@@ -112,7 +103,6 @@
 (require 'mw32script)
 (mw32script-init)
 
-
 ;; ;;; browse-url の設定
 ;; (global-set-key [S-mouse-2] 'browse-url-at-mouse)
 
@@ -153,14 +143,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; ctrl-h
-;(global-set-key "\C-h" 'delete-backward-char)
-(keyboard-translate ?\C-h ?\C-?)
-
-;; key binds
-(global-set-key "\M-c" 'compile)
-(global-set-key "\M-g" 'goto-line)
-
 ;; ツールバー/メニューバーを非表示
 (tool-bar-mode -99)
 (menu-bar-mode -99)
@@ -173,23 +155,3 @@
 ;; navi2ch
 (autoload 'navi2ch "navi2ch" "Navi2ch" t)
 ;(setq navi2ch-net-http-proxy "127.0.0.1:3128")
-
-; インデントにスペースを使う設定
-;(setq-default indent-tabs-mode nil)
-
-;; custom
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(c-basic-offset 8)
- '(c-default-style (quote ((c-mode . "linux") (c++-mode . "linux") (java-mode . "java") (other . "linux"))))
- '(c-tab-always-indent nil)
- '(safe-local-variable-values (quote ((syntax . elisp)))))
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
