@@ -1,3 +1,7 @@
+;; load path
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp"))
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/init.d"))
+
 ;; Language settings
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
@@ -48,8 +52,8 @@ and source-file directory for your debugger." t)
 
 ;; system dependent configs
 (if (featurep 'meadow)
-    (load-file "~/.emacs.d/meadow.el")
-  (load-file "~/.emacs.d/emacs.el")
+    (load "init_meadow")
+  (load "init_misc")
 )
 
 ;;; use space for indentation
