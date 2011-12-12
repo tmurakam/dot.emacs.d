@@ -1,13 +1,34 @@
-;; load path
-(add-to-list 'load-path (expand-file-name "~/.emacs.d"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/elisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/auto-install"))
+(setq user-full-name "Takuya Murakami")
+(setq user-mail-address "tmurakam@tmurakam.org")
 
-;; load inits
-(load "init_lang")
-(load "init_keybind")
-(load "init_ruby")
-(load "init_misc")
+;; Emacs 設定ディレクトリを設定 (Emacs 22以下用)
+(unless (boundp 'user-emacs-directory)
+  (defvar user-emacs-directory (expand-file-name "~/.emacs.d/")))
+
+;; load-path 追加関数
+;; normal-top-level-add-subdirs-to-load-path はディレクトリの中で
+;; [A-Za-z] で開始する物だけ追加するので、追加したくない物は . や _ を先頭に付与しておけばロードしない
+;; dolist は Emacs 21 から標準関数なので積極的に利用して良い
+(defun add-to-load-path (&rest paths)
+  (let (path)
+    (dolist (path paths paths)
+      (let ((default-directory (expand-file-name (concat user-emacs-directory path))))
+        (add-to-list 'load-path default-directory)
+        (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+            (normal-top-level-add-subdirs-to-load-path))))))
+
+;; Emacs Lisp のPathを通す
+(add-to-load-path "elisp" "auto-install" "init.d" ".")
+
+;; load all files in .init.d
+(let* ((dir (concat user-emacs-directory "init.d"))
+       (el-suffix "\\.el\\'")
+       (files (mapcar
+                      (lambda (path) (replace-regexp-in-string el-suffix "" path))
+                             (directory-files dir t el-suffix))))
+  (while files
+    (load (car files))
+    (setq files (cdr files))))
 
 ;; system dependent configs
 (if (featurep 'meadow)
