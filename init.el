@@ -20,6 +20,12 @@
 ;; Emacs Lisp のPathを通す
 (add-to-load-path "elisp" "auto-install" "init.d" ".")
 
+;; auto-install
+(require 'auto-install)
+(setq auto-install-directory "~/.emacs.d/auto-install/")
+(auto-install-update-emacswiki-package-name t)
+(auto-install-compatibility-setup)             ; 互換性確保
+
 ;; load all files in .init.d
 (let* ((dir (concat user-emacs-directory "init.d"))
        (el-suffix "\\.el\\'")
