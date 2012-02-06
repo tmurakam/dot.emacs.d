@@ -14,6 +14,8 @@
              (setq tab-width 8)))
 (setq ruby-indent-level 2)
 
+(setq auto-mode-aliast (append '((".rb" . ruby-mode)) auto-mode-alist))
+
 ;; rubydb
 (autoload 'rubydb "rubydb3x"
   "run rubydb on program file in buffer *gud-file*.
