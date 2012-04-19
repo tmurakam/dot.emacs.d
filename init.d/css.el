@@ -1,8 +1,8 @@
-(autoload 'php-mode "php-mode")
+(autoload 'css-mode "css-mode")
 
 (setq auto-mode-alist
       (append
-       '(("\\.php$" . php-mode))
+       '(("\\.css$" . css-mode))
       auto-mode-alist))
 
 ;(setq php-mode-force-pear t)
