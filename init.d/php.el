@@ -1,9 +1,6 @@
 (autoload 'php-mode "php-mode")
 
-(setq auto-mode-alist
-      (append
-       '(("\\.php$" . php-mode))
-      auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
 ;(setq php-mode-force-pear t)
 

@@ -3,10 +3,7 @@
 (autoload 'javascript-mode "javascript" "My javascript major mode" t)
 (autoload 'js2-mode "js2" "My javascript major mode" t)
 
-(setq auto-mode-alist
-      (append
-       '(("\\.js$" . js2-mode))
-       auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 (setq js2-cleanup-whitespace nil
       js2-mirror-mode nil

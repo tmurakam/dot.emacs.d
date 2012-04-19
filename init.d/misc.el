@@ -47,16 +47,12 @@
 (setq navi2ch-list-bbstable-url "http://menu.2ch.net/bbsmenu.html")
 
 ;; patch file
-(setq auto-mode-alist
-      (append
-       '(("\\.patch$" . fundamental-mode))
-       auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.patch\\'" . fundamental-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;PO mode stuff
 
-(setq auto-mode-alist
-      (cons '("\\.pox?\\'" . po-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.pox?\\'" . po-mode))
 (autoload 'po-mode "po-mode")
 
 (global-set-key [(f1)] (lambda () (interactive) (manual-
