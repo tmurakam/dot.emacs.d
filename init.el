@@ -20,6 +20,11 @@
 ;; Emacs Lisp のPathを通す
 (add-to-load-path "elisp" "auto-install" "init.d" ".")
 
+;; ライブラリがあれば autoload する関数
+(defun autoload-if-found (function file &optional docstring interactive type)
+  (and (locate-library file)
+       (autoload function file docstring interactive type)))
+
 ;; load all files in .init.d
 (let* ((dir (concat user-emacs-directory "init.d"))
        (el-suffix "\\.el\\'")
