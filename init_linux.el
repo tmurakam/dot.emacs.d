@@ -1,16 +1,4 @@
-;; -*- Emacs-Lisp -*-
-;; .emacs.el for Emacs 20.x (for English users)
-;;
-;;
-;; * Wed Jul 26 2000 Masaru Yokoi <masaru@turbolinux.co.jp>
-;; - Modified for English version.
-;;
-;; * Tue May 23 2000 Masaru Yokoi <masaru@turbolinux.co.jp>
-;; - First release.
-;;
-
-;; Mule-UCS
-;(require 'un-define)
+;;; For Linux
 
 (cond
  ((eq window-system 'x)
