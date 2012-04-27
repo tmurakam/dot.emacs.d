@@ -2,7 +2,7 @@
 ;; javascript mode
 (autoload-if-found 'javascript-mode "javascript" "My javascript major mode" t)
 
-(when (autoload-if-found 'js2-mode "js2" "My javascript major mode" t)
+(when (autoload-if-found 'js2-mode "js2-mode" "My javascript major mode" t)
 
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
