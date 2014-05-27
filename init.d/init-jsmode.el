@@ -5,6 +5,7 @@
 (when (autoload-if-found 'js2-mode "js2-mode" "My javascript major mode" t)
 
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.json\\'" . js2-mode))
 
   (setq js2-cleanup-whitespace nil
         js2-mirror-mode nil
