@@ -25,6 +25,12 @@
   (and (locate-library file)
        (autoload function file docstring interactive type)))
 
+;; system dependent configs
+(if (featurep 'meadow)
+    (load "init_meadow")
+  (load "init_linux")
+)
+
 ;; load all files in .init.d
 (let* ((dir (concat user-emacs-directory "init.d"))
        (el-suffix "\\.el\\'")
@@ -35,15 +41,20 @@
     (load (car files))
     (setq files (cdr files))))
 
-;; system dependent configs
-(if (featurep 'meadow)
-    (load "init_meadow")
-  (load "init_linux")
-)
-
 ;; custom-file
 (setq custom-file (expand-file-name "~/.emacs.d/custom.el"))
 (load custom-file)
 
 ;; other local settings
 (load "init_local")
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
