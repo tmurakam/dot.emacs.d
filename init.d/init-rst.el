@@ -1,5 +1,6 @@
 ;; Emacs起動時にrst.elを読み込み
-(require 'rst)
+;(require 'rst)
+(autoload 'rst-mode "rst" nil t)
 
 ;; 拡張子の*.rst, *.restのファイルをrst-modeで開く
 (setq auto-mode-alist
