@@ -5,12 +5,7 @@
 以下を実施しておくこと。
 
   $ cd ~/.emacs.d
-  $ git submodule init
-  $ git submodule update
-  $ cd elisp/rinari
-  $ git submodule init
-  $ git submodule update
-  $ touch init/init_local.el
+  $ ./initialize.sh
 
 これをしないと必要な lisp がインストールされずエラーになる。
 
